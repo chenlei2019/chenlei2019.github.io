@@ -1,13 +1,13 @@
 new Vue({
     el: '#vue-app',
     data: {
-        age: 25,
+        age: 37,
         x: 0,
         y: 0
     },
     methods: {
-        add: function(inc){
-            this.age += inc;
+        add:function(){
+            this.age++;
         },
         subtract: function(dec){
             this.age -= dec;
