@@ -6,13 +6,13 @@ new Vue({
         y: 0
     },
     methods: {
-        add:function(){
-            this.age++;
+        add:function(inc){
+            this.age += inc;
         },
         subtract: function(dec){
             this.age -= dec;
         },
-        updateXY: function(event){
+        updateXY:function(event){
             this.x = event.offsetX;
             this.y = event.offsetY;
         },

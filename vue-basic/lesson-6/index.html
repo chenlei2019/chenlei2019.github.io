@@ -9,9 +9,16 @@
     <body>
         <div id="vue-app">
             <h1>Events</h1>
-            <button v-on:click="add">长一岁</button>
-            <button v-on:click="age--">减一岁</button>
+            <button v-on:click="add(1)">长一岁</button>
+            <!-- <button v-on:click="age--">减一岁</button> -->
+            <button v-on:click="subtract(1)">减一岁</button>
+            <button v-on:dblClick="add(10)">长十岁</button>
+            <button v-on:dblClick="subtract(10)">减十岁</button>
            <p>My age is {{ age }}</p>
+           <div id="canvas" v-on:mousemove="updateXY" v-on:click = "click">
+               {{ x }},{{ y }}
+
+           </div>
         </div>
     </body>
 
