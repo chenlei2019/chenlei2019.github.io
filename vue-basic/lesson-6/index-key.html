@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>VueJS Tutorials</title>
+        <link href="styles.css" rel="stylesheet" />
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="vue-app">
+           <h1> v-for 循环 </h1>
+            <!-- 数组下标获取 -->
+            <!-- {{characters[0]}}
+            {{characters[1]}}
+            {{characters[2]}} -->
+                <!-- 数组遍历 -->
+            <ul>
+                <li v-for="character in characters">
+                    {{character}}
+                </li>
+            </ul>
+
+            <ul>
+                <li v-for="(user,index) in users">
+                   {{index}}. {{user.name}} - {{user.age}}
+                </li>
+            </ul>
+
+            <template v-for="(user,index) in users">
+                <h3>{{index}}.{{user.name}}</h3>
+                <p>Age - {{user.age}}</p>
+            </template>
+            <div v-for="(user,index) in users">
+                <h3>{{index}}.{{user.name}}</h3>
+                <p>Age - {{user.age}}</p>
+            </div>
+            <template v-for="(user,index) in users">
+                <div v-for="(val,key) in user">
+                    <p>
+                        {{key}} - {{val}}
+                    </p>
+                </div>
+            </template>
+
+
+           <!-- <h1> v-if 条件 </h1>
+
+           <button v-on:click="error = !error">Toggle Error</button>
+           <button v-on:click="success = !success">Toggle Success</button>
+
+           <p v-show="error">网络连接错误：404</p>
+           <p v-show="success">网络连接成功：200</p> -->
+           <!-- <p v-if="error">网络连接错误：404</p>
+           <p v-else-if="success">网络连接成功：200</p> -->
+           
+
+           <!-- <h1>动态 CSS Class</h1>
+           <h2 v-bind:class="{red:true,blue:false}">示例 1</h2>
+           <div v-bind:class="{changeColor:changeColor}" v-on:click="changeColor = !changeColor">
+            <span>chenlei</span>
+           </div>
+           <h2>实例 2</h2>
+           <button v-on:click="changeColor = !changeColor">change color</button>
+           <button v-on:click="changeLength = !changeLength">change length</button>
+           <div v-bind:class="compClasses">
+               <span>liao</span>
+           </div> -->
+
+           <!-- <h1>Computer 计算属性</h1>
+            <button v-on:click="a++">Add to A</button>
+            <button v-on:click="b++">Add to B</button>
+            <p>A - {{a}}</p>
+            <p>B - {{b}}</p>
+            <p>Age + A = {{addToA}}</p>
+            <p>Age + B = {{addToB}}</p> -->
+
+           <!-- <h1>双向数据绑定 / input / select / textarea</h1>
+           <label for="">姓名：</label>
+           <input type="text" v-model="name">
+           <span>{{name}}</span>
+           <label for="">年龄：</label>
+           <input ref="age" type="text" v-model="age">
+           <span>{{age}}</span> -->
+
+           <!-- <h1>双向数据绑定 / input / select / textarea</h1>
+           <label for="">姓名：</label>
+           <input ref="name" type="text" v-on:keyup="logName">
+           <span>{{name}}</span>
+           <label for="">年龄：</label>
+           <input ref="age" type="text" v-on:keyup="logAge">
+           <span>{{age}}</span> -->
+
+            <!-- <h1>Events</h1>
+           <h1>键盘 Events</h1>
+           <label for="">姓名：</label>
+           <input type="text" v-on:keyup.enter="logName">
+           <label for="">年龄：</label>
+           <input type="text" v-on:keyup.alt.enter="logAge"> -->
+         
+        </div>
+    </body>
+
+    <script src="app2.js"></script>
+</html>
