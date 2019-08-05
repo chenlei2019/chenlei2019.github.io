@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./game.css">
+</head>
+<body>
+    <div class="game">
+        <div class="container" style="display: none;">
+            <!-- 装图片的容器 -->
+            <div class="img-container">
+                <!-- <div class="item"><img src="images/role1.jpg" alt=""></div>
+                <div class="item active"><img src="images/role2.jpg" alt=""></div>
+                <div class="item"><img src="images/role3.jpg" alt=""></div>
+                <div class="item"><img src="images/role4.jpg" alt=""></div>
+                <div class="item"><img src="images/role5.jpg" alt=""></div>
+                <div class="item"><img src="images/role6.jpg" alt=""></div>
+                <div class="item"><img src="images/role7.jpg" alt=""></div>
+                <div class="item"><img src="images/role8.jpg" alt=""></div>
+                <div class="item"><img src="images/role9.jpg" alt=""></div>
+                <div class="item"><img src="images/role10.jpg" alt=""></div>
+                <div class="item"><img src="images/role11.jpg" alt=""></div>
+                <div class="item"><img src="images/role12.jpg" alt=""></div> -->
+            </div>
+            <!-- 倒计时 -->
+            <div class="time">
+                    100s
+            </div>
+        </div>
+        <div id="divbegin" class="center pointer">
+            开始游戏
+        </div>
+        <div id="divwin" class="center" style="display: none;">
+            游戏胜利
+        </div>
+        <div id="divfail" class="center" style="display: none;">
+            游戏失败
+        </div>
+    </div>
+
+    <audio id="audbg" loop src="images/music/GameSceneBGM.mp3"></audio>
+    <audio id="audlose" src="images/music/WorldSceneBGM.mp3"></audio>
+    <audio id="audright" src="images/music/音效1.mp3"></audio>
+    <audio id="audwin" loop src="images/music/WorldSceneBGM.mp3"></audio>
+
+    <script src="./game.js" style="display: none;"></script>
+</body>
+</html>
