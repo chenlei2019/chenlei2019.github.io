@@ -18,6 +18,9 @@ new Vue({
         },
         click: function(){
             alert('you clicked me');
+        },
+        stopMoving:function(event){
+            event.stopPropagation();
         }
     }
 });

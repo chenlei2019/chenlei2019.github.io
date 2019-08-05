@@ -16,7 +16,11 @@
             <button v-on:dblClick="subtract(10)">减十岁</button>
            <p>My age is {{ age }}</p>
            <div id="canvas" v-on:mousemove="updateXY" v-on:click = "click">
-               {{ x }},{{ y }}
+               {{ x }},{{ y }}--
+               <!-- stopMoving -->
+               <span v-on:mousemove.stop="">
+                   Stop Moving
+               </span>
 
            </div>
         </div>
