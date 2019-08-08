@@ -22,10 +22,27 @@ var barHelper = (function(){
         var top = listDom.scrollTop / listDom.scrollHeight * listClientHeight;
         bardom.style.top = top + "px";
     }
+    
 
     function init(){
         setBarHeight();
         setBarTop();
     }
     init();
+
+    var timer = null;
+    /**
+     * 设置列表的scrollTop
+     * @param {*} newScrollTop 
+     */
+
+    function setListScrollTop(newScrollTop){
+        clearInterval(timer);//避免重复调用函数，停止之前的移动
+        //使用动画实现滚动
+        //例如：scrollTop  300 -> 100
+        
+
+
+    }
+
 })();
