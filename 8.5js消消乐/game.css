@@ -47,7 +47,8 @@
     background: #fff;
     border-radius: 3px;
     cursor: pointer;
-    transition: 0.2s;
+    /* 过渡：某些尺寸、颜色类的CSS属性，会在指定的时间内完成变化 */
+    transition: 0.1s;
 }
 .img-container .item:hover{
     box-shadow: 0 0 5px 5px #eee;

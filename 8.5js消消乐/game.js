@@ -41,7 +41,7 @@ function getRandom(min,max){
  */
 function initCards(){
     for(var i = 0;i<cardNumber;i+=2){
-        var n = getRandom(1,13);
+        var n = getRandom(1,5);//注意是总数的一半！！
         cards.push(new Card(n));
         cards.push(new Card(n));
     }
@@ -74,24 +74,30 @@ function Card(n){
 
 }
 
+/**
+ * 传递一个card对象，该函数控制该对象的选中
+ * @param {*} card 
+ */
 function setActive(card){
     if(card.isClear){
-        return;
+        return;//如果卡片已经被消除了，该操作没有任何意义
     }
+     //得到之前选中的card对象
     var before = getActiveCard();
-    
+      //设置当前卡片的选中状态
     card.isActive = true;
     card.dom.classList.add("active");
     if(!before){
+        //之前没有任何卡片被选中
         return;
     }
-
+  //判断是否能够消除
     if(before.number === card.number){
         before.isClear = true;
         card.isClear = true;
         before.dom.style.opacity = 0;
         card.dom.style.opacity = 0;
-
+       //从数组中移除
         removeCard(card);
         removeCard(before);
 
@@ -119,6 +125,9 @@ function removeCard(card){
 
 // }
 
+/**
+ * 找到选中的并且没有消失的卡片
+ */
 function getActiveCard(){
     for(var i = 0; i < cards.length; i++){
         if(cards[i].isActive && !cards[i].isClear){
@@ -126,7 +135,9 @@ function getActiveCard(){
         }
     }
 }
-
+/**
+ * 游戏胜利
+ */
 function gameWin(){
     doms.container.style.display = "none";
     doms.divWin.style.display = "block";
@@ -134,7 +145,9 @@ function gameWin(){
     doms.audWin.play();
     doms.audBg.pause();
 }
-
+/**
+ * 游戏失败
+ */
 function gameFail(){
     doms.container.style.display = "none";
     doms.divFail.style.display = "block";
@@ -144,7 +157,9 @@ function gameFail(){
 }
 
 var timer;
-
+/**
+ * 启动倒计时
+ */
 function startTime(){
     doms.time.innerText = `${curTime}s`;
     timer = setInterval(function() {
