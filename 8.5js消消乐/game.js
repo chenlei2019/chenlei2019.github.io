@@ -91,8 +91,8 @@ function setActive(card){
         //之前没有任何卡片被选中
         return;
     }
-  //判断是否能够消除
-    if(before.number === card.number){
+  //判断是否能够消除,注意自己点自己两下不能消除！
+    if(before.number === card.number && cards.indexOf(before) !== cards.indexOf(card)){
         before.isClear = true;
         card.isClear = true;
         before.dom.style.opacity = 0;
