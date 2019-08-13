@@ -48,7 +48,17 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    overlay: true
+    overlay: true,
+    proxy:{
+      '/apis':{
+        target:'http://t.weather.sojson.com',   //接口域名
+        changeOrigin:true,
+        // secure:false,
+        pathRewrite:{
+          '^/apis':''   //需要rewrite重写
+        }
+      }
+    }
   },
   performance: {
     hints: false

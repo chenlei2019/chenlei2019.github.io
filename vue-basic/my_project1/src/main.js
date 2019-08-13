@@ -6,6 +6,12 @@ import VueResource from 'vue-resource'
 import App from './App'
 import HelloWorld from './components/HelloWorld'
 import Home from './components/Home'
+
+// axios.defaults.headers.common['token'] = "f4c902c9ae5a2a9d8f84868ad064e706"
+// axios.defaults.headers.post["Content-type"] = "application/json"
+import axios from 'axios'
+Vue.prototype.$axios = axios
+
 // import Users from './components/Users'
 
 Vue.config.productionTip = false

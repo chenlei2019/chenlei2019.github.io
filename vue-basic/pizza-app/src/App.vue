@@ -32,6 +32,14 @@ export default {
   components:{
     // appHeader:Header
     "app-header":Header
+  },
+  created(){
+    //fetch
+    fetch("/apis/api/weather/city/101030100",{
+      method:"get"
+    }).then(result => {
+      console.log(result)
+    })
   }
 }
 </script>

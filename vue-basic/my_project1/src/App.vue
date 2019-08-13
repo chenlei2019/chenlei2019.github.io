@@ -21,6 +21,31 @@ export default {
     return {
     
     }
+  },
+  created(){
+    //fetch
+    // fetch("/apis/api/weather/city/101030100",{
+    //   method:"get",//post
+      //headers:{
+        // "Content-type":"application/json",
+      //   token:"f4c902c9ae5a2a9d8f84868ad064e706"
+      // }
+      // body:""; body:JSON.stringify({username:"henry",password:"321321"})
+      //
+    // }).then(result => {
+    //   // console.log(result)
+    //   return result.json()
+    // })
+    // .then(data => {
+    //   console.log(data);
+    // })
+
+
+    //axios
+    this.$axios.get("/apis/api/weather/city/101030100",{})
+    .then(data => {
+      console.log(data);
+    })
   }
 }
 </script>
