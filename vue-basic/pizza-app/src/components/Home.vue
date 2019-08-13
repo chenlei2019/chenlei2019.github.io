@@ -1,7 +1,14 @@
 <template>
-<div>
-    <h1>Home</h1>
-    <button @click="goToMenu" class="btn btn-success">Let's order!</button>
+<div class="row">
+    <div class="col-sm-12 text-center" id="home">
+        <div class="background">
+            <h1>欢迎大家品尝pizza</h1>
+            <h2>这里有你非常喜欢的pizza！</h2>
+                <button @click="goToMenu" class="btn btn-success">Let's order!</button>
+        </div>
+    </div>
+    <!-- <h1>Home</h1>
+    <button @click="goToMenu" class="btn btn-success">Let's order!</button> -->
 </div>
     
 </template>
@@ -27,3 +34,24 @@ export default {
     }
 }
 </script>
+
+<style>
+#home{
+    background:url("../../src/assets/pizza.jpg") no-repeat center center;
+    background-size: 100%;
+    height: 85vh;
+    width: 100vw;
+    padding: 10%; 
+}
+h1 h2{
+    margin: 6%;
+}
+.background{
+    background: #eee;
+    opacity: 0.8;
+    max-width: 70vw;
+    margin-right: 0 auto;
+    padding: 20px 0;
+}
+
+</style>
