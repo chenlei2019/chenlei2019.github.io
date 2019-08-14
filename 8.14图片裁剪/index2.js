@@ -58,7 +58,7 @@ var cut = {
             document.ontouchmove = function(e){
                 var disX = e.targetTouches[0].clientX - pageX;
                 var disY = e.targetTouches[0].clientY - pageY;
-                that.onmove(left + disX, top + disY);
+                that.move(left + disX, top + disY);
             }
             document.ontouchend = function(){
                 document.ontouchmove = null;
