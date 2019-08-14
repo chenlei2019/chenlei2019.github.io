@@ -57,6 +57,7 @@ var cut = {
                 left = that.left,
                 top = that.top;
             document.ontouchmove = function(e){
+                e.preventDefault();
                 var disX = e.targetTouches[0].clientX - pageX;
                 var disY = e.targetTouches[0].clientY - pageY;
                 that.move(left + disX, top + disY);
@@ -96,6 +97,7 @@ var cut = {
             var pageY = e.targetTouches[0].clientY;
             var size = that.size;
             document.ontouchmove = function(e){
+                e.preventDefault();
                 var disX = e.targetTouches[0].clientX - pageX;
                 var disY = e.targetTouches[0].clientY - pageY;
                 var max = disX > disY ? disX : disY;
