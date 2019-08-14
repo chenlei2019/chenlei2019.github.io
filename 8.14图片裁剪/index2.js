@@ -51,13 +51,13 @@ var cut = {
     moveEvent:function(){
         var that = this;
         this.dom.touchstart = function(e){
-            var pageX = e.pageX,
-                pageY = e.pageY,
+            var pageX = e.Touch.pageX,
+                pageY = e.Touch.pageY,
                 left = that.left,
                 top = that.top;
             window.touchmove = function(e){
-                var disX = e.pageX - pageX;
-                var disY = e.pageY - pageY;
+                var disX = e.Touch.pageX - pageX;
+                var disY = e.Touch.pageY - pageY;
                 that.move(left + disX, top + disY);
             }
             window.touchend = function(){
@@ -90,12 +90,12 @@ var cut = {
         var that = this;
         resizeDom.touchstart = function(e){
             e.stopPropagation();//阻止事件冒泡
-            var pageX = e.pageX;
-            var pageY = e.pageY;
+            var pageX = e.Touch.pageX;
+            var pageY = e.Touch.pageY;
             var size = that.size;
             window.touchmove = function(e){
-                var disX = e.pageX - pageX;
-                var disY = e.pageY - pageY;
+                var disX = e.Touch.pageX - pageX;
+                var disY = e.Touch.pageY - pageY;
                 var max = disX > disY ? disX : disY;
                 that.resize(size + max);
             }
