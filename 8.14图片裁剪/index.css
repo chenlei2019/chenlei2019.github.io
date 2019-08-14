@@ -6,7 +6,7 @@
 .container .left{
     width: 500px;
     height: 500px;
-    float: left;
+    /* float: left; */
     background: url("./微信图片_20190814220357.jpg") no-repeat;
     background-size: 100% 100%;
     position: relative;
@@ -15,8 +15,9 @@
 .container .right{
     width: 150px;
     height: 150px;
+    margin: 50px auto;
     background: url("./微信图片_20190814220357.jpg") no-repeat;
-    float: right;
+    /* float: left; */
 }
 
 .container .cut{
