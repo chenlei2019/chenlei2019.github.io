@@ -35,10 +35,21 @@ export default {
   },
   created(){
     //fetch
-    fetch("/apis/api/weather/city/101030100",{
-      method:"get"
-    }).then(result => {
-      console.log(result)
+    // fetch("/apis/api/weather/city/101030100",{
+    //   method:"get"
+    // }).then(result => {
+    //   // console.log(result)
+    //   return result.json();
+    // })
+    // .then(data => {
+    //   console.log(data);
+    // })
+
+  //axios
+    // this.$axios.post("/apis//api/weather/city/101030100",{})
+    this.$axios.get("/apis//api/weather/city/101030100",{})
+    .then(data => {
+      console.log(data.data.data.forecast[0].type);
     })
   }
 }

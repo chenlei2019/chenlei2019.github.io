@@ -3,6 +3,13 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import { routes } from './routes'
 
+import axios from 'axios'
+
+// axios.defaults.headers.common['token'] = "f4c902c9ae5a2a9d8f84868ad064e706"
+// axios.defaults.headers.post["Content-type"] = "application/json"
+
+Vue.prototype.$axios = axios
+
 
 Vue.use(VueRouter)
 
