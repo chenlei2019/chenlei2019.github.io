@@ -51,6 +51,7 @@ var cut = {
     moveEvent:function(){
         var that = this;
         this.dom.ontouchstart = function(e){
+            e.preventDefault();
             var pageX = e.targetTouches[0].clientX,
                 pageY = e.targetTouches[0].clientY,
                 left = that.left,
@@ -89,6 +90,7 @@ var cut = {
         var resizeDom = document.querySelector(".cut .resize");
         var that = this;
         resizeDom.ontouchstart = function(e){
+            e.preventDefault();
             e.stopPropagation();//阻止事件冒泡
             var pageX = e.targetTouches[0].clientX;
             var pageY = e.targetTouches[0].clientY;
