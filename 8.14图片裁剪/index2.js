@@ -61,7 +61,7 @@ var cut = {
                 that.move(left + disX, top + disY);
             }
             document.touchend = function(){
-                document.onmousemove = null;
+                document.touchmove = null;
             }
         }
     },
@@ -100,7 +100,7 @@ var cut = {
                 that.resize(size + max);
             }
             document.touchend = function(){
-                document.onmousemove = null;
+                document.touchmove = null;
             }
         }
     }
