@@ -51,17 +51,17 @@ var cut = {
     moveEvent:function(){
         var that = this;
         this.dom.touchstart = function(e){
-            var pageX = e.Touch.pageX,
-                pageY = e.Touch.pageY,
+            var pageX = e.clientX,
+                pageY = e.clientY,
                 left = that.left,
                 top = that.top;
-            window.touchmove = function(e){
-                var disX = e.Touch.pageX - pageX;
-                var disY = e.Touch.pageY - pageY;
+            document.touchmove = function(e){
+                var disX = e.clientX - pageX;
+                var disY = e.clientY - pageY;
                 that.move(left + disX, top + disY);
             }
-            window.touchend = function(){
-                window.onmousemove = null;
+            document.touchend = function(){
+                document.onmousemove = null;
             }
         }
     },
@@ -90,17 +90,17 @@ var cut = {
         var that = this;
         resizeDom.touchstart = function(e){
             e.stopPropagation();//阻止事件冒泡
-            var pageX = e.Touch.pageX;
-            var pageY = e.Touch.pageY;
+            var pageX = e.clientX;
+            var pageY = e.clientY;
             var size = that.size;
-            window.touchmove = function(e){
-                var disX = e.Touch.pageX - pageX;
-                var disY = e.Touch.pageY - pageY;
+            document.touchmove = function(e){
+                var disX = e.clientX - pageX;
+                var disY = e.clientY - pageY;
                 var max = disX > disY ? disX : disY;
                 that.resize(size + max);
             }
-            window.touchend = function(){
-                window.onmousemove = null;
+            document.touchend = function(){
+                document.onmousemove = null;
             }
         }
     }
