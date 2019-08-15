@@ -5,8 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <div id="box">
+        <dl>
+            <dt>品牌：</dt>
+            <dd>惠普</dd>
+            <dd>联想</dd>
+            <dd>戴尔</dd>
+            <dd>三星</dd>
+            <dd>弘基</dd>
+            <dd>苹果</dd>
+            <dd>神州</dd>
+            <dd>华硕</dd>
+            <dd>方正</dd>
+        </dl>
+        <dl>
+            <dt>价格：</dt>
+            <dd>3000-3999</dd>
+            <dd>4000-4999</dd>
+            <dd>5000-5999</dd>
+            <dd>6000-6999</dd>
+            <dd>7000-7999</dd>
+            <dd>8000-8999</dd>
+            <dd>9000-10999</dd>
+
+        </dl>
+        <dl>
+            <dt>尺寸：</dt>
+            <dd>8.9英寸及以下</dd>
+            <dd>11英寸</dd>
+            <dd>12英寸</dd>
+            <dd>13英寸</dd>
+            <dd>14英寸</dd>
+            <dd>15英寸</dd>
+            <dd>16英寸</dd>
+            <dd>17英寸</dd>
+            <dd>18英寸</dd>
+        </dl>
+        <dl style="border: none;">
+            <dt>显卡：</dt>
+            <dd>独立显卡</dd>
+            <dd>核显显卡</dd>
+            <dd>集成显卡</dd>
+        </dl>
+        <dl class="select">
+            <dt>已选条件：</dt>
+            <!-- <dd>16英寸<span>X</span></dd> -->
+        </dl>
+    </div>
+
+
+    <script>
     
+        var dls = document.querySelectorAll("dl:not(.select)");
+        var selected = document.querySelector('.select');
+        
+        for(var i = 0; i < dls.length; i++){
+            dls[i].mark = false;
+            select(i);
+        }
+
+        function select(n){
+            var dds = dls[n].querySelectorAll('dd');
+            var prev = null;
+            var dd = null;
+
+            for(var i = 0; i < dds.length; i++){
+                dds[i].onclick = function(){
+                    prev && (prev.className = "");
+
+                    this.className = "active";
+
+                    prev = this;
+
+                    //创建dd元素和span元素
+                    var parent = this.parentNode;
+                    if(!parent.mark){
+                        dd = document.createElement('dd');
+                        dd.innerHTML = this.innerHTML;
+                        selected.appendChild(dd);
+
+                        parent.mark = true;
+                    }
+                    else{
+                        dd.innerHTML = this.innerHTML;
+                    }
+                   
+
+                    var span = document.createElement('span');
+                    var that = this;
+                    span.innerHTML = "X";
+                    span.onclick = function(){
+                        //alert(1)
+                        /**
+                            点击关闭span要做的事
+                            1.移除dd
+                            2.把上面点击的dd那个class去掉
+                            3.父级身上的mark属性进行更新
+                        */
+                        selected.removeChild(dd);
+                        that.className = '';
+                        parent.mark = false;
+                    }
+                    dd.appendChild(span);
+
+                }
+            }
+        }
+
+    </script>
 </body>
 </html>

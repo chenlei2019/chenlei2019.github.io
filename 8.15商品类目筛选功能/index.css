@@ -1,0 +1,58 @@
+body{
+    background:#b5abb3;
+}
+dl,dd{
+    margin: 0;
+}
+
+#box{
+    width: 850px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px #494242;
+    margin: 50px auto;
+}
+
+#box dl{
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px dashed #fad8e6;
+    margin: 0 20px;
+    cursor: pointer;
+}
+#box dt{
+    float: left;
+    color: #8a8a8a;
+}
+#box dd{
+    float: left;
+    color: #252525;
+    margin: 0 10px;
+    font-size: 14px;
+}
+#box dd.active{
+    color: #c4284d;
+}
+
+#box dl.select{
+    background: #ebe4e4;
+    margin: 0;
+    padding: 0 20px;
+}
+#box dl.select dd {
+    border: 1px solid #c4284d;
+    height: 25px;
+    line-height: 25px;
+    margin-top: 13px;
+    padding: 0 2px 0 10px;
+}
+#box dl.select dd span{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    text-align: center;
+    line-height: 20px;
+    background: #c4284d;
+    color: #fff;
+    margin-left: 10px;
+    cursor: pointer;
+}
