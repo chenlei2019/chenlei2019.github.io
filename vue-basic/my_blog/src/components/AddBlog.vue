@@ -98,6 +98,9 @@ export default {
     width: 100%;
     padding: 8px;
   }
+  textarea{
+    height: 200px;
+  }
   #checkboxes label{
     display: inline-block;
     margin-top: 0;
@@ -105,5 +108,24 @@ export default {
   #checkboxes input{
     display: inline-block;
     margin-right: 10px;
+  }
+  button{
+    display: block;
+    margin: 20px 0;
+    background: crimson;
+    color: #fff;
+    border: 0;
+    padding: 14px;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  #preview{
+    padding: 10px 20px;
+    border: 1px dotted #ccc;
+    margin: 30px 0;
+  }
+  #preview h3{
+    margin-top:10px;
   }
 </style>
