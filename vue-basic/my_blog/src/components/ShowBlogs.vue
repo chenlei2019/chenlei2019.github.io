@@ -40,4 +40,15 @@ export default {
         box-sizing: border-box;
         background: #eee;
     }
+
+/* 
+    register(){
+        this.model.categoryIds = [];
+        var that = this;
+        this.registerOption.foreach(element => {
+            if(!element.disabled){
+                that.model.categoryIds.push(element.value);
+            }
+        })
+    } */
 </style>
