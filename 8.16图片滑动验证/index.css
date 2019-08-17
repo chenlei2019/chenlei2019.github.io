@@ -1,0 +1,64 @@
+.container{
+    width: 234px;
+    /* border: 2px solid; */
+    margin: 0 auto;
+}
+
+.sncode{
+    padding: 16px 16px 7px;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+}
+
+.snimg{
+    position: relative;
+    width: 200px;
+    height: 100px;
+}
+
+.reload{
+    width: 28px;
+    height: 28px;
+    margin-top: 5px;
+    cursor: pointer;
+    background: url("./images/reload.png") no-repeat left top/100% 100%;
+}
+
+.bar-container{
+    padding: 20px 40px;
+    background: #f2ece1;
+    border-radius: 24px;
+    margin-top: 20px;
+}
+.bar-bg{
+    position: relative;
+    height: 10px;
+    background: #f27172;
+    border-radius: 5px;
+}
+.bar-bg .bar{
+    width: 30px;
+    height: 30px;
+    background: #827878;
+    border-radius: 50%;
+    box-shadow: 0 0 6px 0 #73706e;
+    position: absolute;
+    left: 0%;
+    top: 0;
+    transform: translate(-10px,-10px);
+    cursor: pointer;
+}
+.frag{
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* border: 2px solid; */
+    /* outline: 2px solid; */
+    width: 200px;
+    height: 100px;
+}
+.frag canvas{
+    position: absolute;
+    left: 0;
+    top: 0;
+}

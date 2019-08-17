@@ -8,7 +8,34 @@
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-    
+    <div class="container">
+        <!-- 验证码、 -->
+        <div class="sncode">
+            <!-- 验证码图片 -->
+            <div class="snimg" style="background: url(./images/t1.png)">
+                <!-- 画布，可以用js在上面画画 -->
+                <canvas id="cvsHole" width="200" height="100"></canvas>
+                <div class="frag">
+                    <canvas id="cvsShadow" width="200" height="100" ></canvas>
+                    <canvas id="cvsFrag" width="200" height="100"></canvas>
+                </div>
+            </div>
+            <!-- 刷新按钮 -->
+            <div class="reload">
+
+            </div>
+        </div>
+        <!-- 拖动条 -->
+        <div class="bar-container">
+            <div class="bar-bg">
+                <!-- 拖动的小块 -->
+                <div class="bar">
+
+                </div>
+            </div>
+        </div>
+    </div>    
+    <!-- <canvas id="cvsHole" width="200" height="100"></canvas> -->
 
 
     <script src="./index.js"></script>
