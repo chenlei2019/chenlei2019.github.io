@@ -96,7 +96,7 @@
         -webkit-transform: rotate(-480deg);
     }
 }
-}
+
 @keyframes counterclockwiseSpinAndFlip {
     0% {
         transform: none;
@@ -137,7 +137,7 @@
 .timenav .time_list .time2 {
     -webkit-animation: lantern_shake2 3s linear both;
     -webkit-transform-origin: center top;
-    -webkit-backface-visibility: hidden;
+    /* -webkit-backface-visibility: hidden; */
     animation: lantern_shake2 3s linear both;
     transform-origin: center top;
 }
@@ -166,7 +166,7 @@
 .timenav .time_list .time3 {
     -webkit-animation: lantern_shake3 3s linear both;
     -webkit-transform-origin: center top;
-    -webkit-backface-visibility: hidden;
+    /* -webkit-backface-visibility: hidden; */
     animation: lantern_shake3 3s linear both;
     transform-origin: center top;
 }
