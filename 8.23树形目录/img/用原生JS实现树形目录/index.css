@@ -1,0 +1,29 @@
+.tree .menu {
+    margin-left: 40px;
+    position: relative;
+    line-height: 2;
+    cursor: pointer;
+}
+
+.tree .menu.haschild::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: url("./img/arrow.png") no-repeat left top /100% 100%;
+    left: -16px;
+    top: 9px;
+}
+
+.tree .menu.haschild>.menu {
+    display: none;
+}
+
+.tree .menu.haschild.expand>.menu {
+    display: block;
+    
+}
+
+.tree .menu.haschild.expand::before{
+    transform: rotate(90deg);
+}

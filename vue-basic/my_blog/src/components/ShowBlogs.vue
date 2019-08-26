@@ -1,10 +1,12 @@
 <template>
   <div v-theme:column="'narrow'" id="show-blogs">
       <h1>博客总览</h1>
-      <div class="single-blog" v-for="blog in blogs">
-          <h2 v-rainbow>{{blog.title}}</h2>
+      <input type="text" v-model="search" placeholder="搜索">
+      <!-- <div class="single-blog" v-for="blog in blogs"> -->
+      <div class="single-blog" v-for="blog in filteredBlogs">
+          <h2 v-rainbow>{{blog.title | to-uppercase}}</h2>
           <article>
-              {{blog.body}}
+              {{blog.body | snippet}}
           </article>
       </div>
   </div>
@@ -16,6 +18,7 @@ export default {
   data(){
       return{
           blogs:[],
+          search:""
       }
   },
   created(){
@@ -25,6 +28,30 @@ export default {
          this.blogs = data.body.slice(0,10);
          console.log(this.blogs);
       })
+  },
+  computed:{
+      filteredBlogs:function(){
+          return this.blogs.filter((blog) => {
+              return blog.title.match(this.search);
+          })
+      }
+  },
+  filters: {
+    //   "to-uppercase": function(value){
+    //       return value.toUpperCase();
+    //   }
+      toUppercase(value){
+          return value.toUpperCase();
+      }
+  },
+  directives:{
+      'rainbow':{
+          bind(el,binding,vnode){
+            //   el.style.color = "red"
+            el.style.color = "#" + Math.random().toString(16).slice(2,8);
+
+          }
+      }
   }
 }
 </script>
