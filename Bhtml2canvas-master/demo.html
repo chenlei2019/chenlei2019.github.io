@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+        <title>html2canvas生成图片</title>
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+        <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            html, body {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+            .none {
+                display: none;
+            }
+            .bg {
+                background: url('./bg.jpg') no-repeat;
+                width: 100%;
+                height: 100%;
+                background-size: 100% 100%;
+                position: relative;
+                overflow: hidden;
+            }
+            .prize-wrap {
+                width: 80%;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .prize-text {
+                margin-top: 280px;
+                text-align: center;
+            }
+            .prize-number {
+                width: 100px;
+                height: 48px;
+                line-height: 48px;
+                border: 1px solid red;
+                margin: 60px auto 0;
+            }
+            .prize-hint {
+                position: absolute;
+                bottom: 20px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                z-index: 33;
+                text-align: center;
+                color: #1890ff;
+                font-size: 14px;
+            }
+            .prize-create {
+                position: absolute;
+                bottom: 20px;
+                width: 160px;
+                height: 48px;
+                line-height: 48px;
+                text-align: center;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                background: #1890ff;
+                color: #fff;
+                border-radius: 15px;
+            }
+            .createImg {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 10;
+            }
+        </style>
+    </head>
+    <body ontouchmove="event.preventDefault()">
+        <div class="bg">
+            <div class="prize-wrap">
+                <p class="prize-text">恭喜您获得武汉天地<br>为您准备的精美礼品</p>
+                <p class="prize-number">888888</p>
+            </div>
+        </div>
+        <p class="prize-create">一键生成海报</p>
+        <p class="prize-hint none">长按保存<br>届时凭此图至武汉天地领取奖品</p>
+        <img class="createImg none" src="" alt="" />
+    </body>
+    <script type="text/javascript">
+        var canvas = document.createElement("canvas")
+        var context = canvas.getContext("2d")
+        // 屏幕的设备像素比
+        var devicePixelRatio = window.devicePixelRatio || 1
+        // 浏览器在渲染canvas之前存储画布信息的像素比
+        var backingStoreRatio = context.webkitBackingStorePixelRatio || context.mozBackingStorePixelRatio || context.msBackingStorePixelRatio || context.oBackingStorePixelRatio || context.backingStorePixelRatio || 1
+        // canvas的实际渲染倍率
+        var ratio = devicePixelRatio / backingStoreRatio
+        let _canvas = document.querySelector('.bg')
+        var w = parseInt(window.getComputedStyle(_canvas).width)
+        var h = parseInt(window.getComputedStyle(_canvas).height)
+        canvas.width = w * ratio
+        canvas.height = h * ratio
+        // canvas.style.width = w / ratio + 'px';
+        // canvas.style.height = h / ratio + 'px';
+        context.scale(1*ratio, 1*ratio)
+        $('.prize-create').click(() => {
+            html2canvas(document.querySelector('.bg'), {canvas: canvas}).then(function(canvas) {
+                if (canvas.toDataURL()) {
+                    $('.createImg').show()
+                    $('.createImg').attr('src', canvas.toDataURL())
+                    $('.prize-hint').show()
+                }
+            })
+        })
+    </script>
+</html>

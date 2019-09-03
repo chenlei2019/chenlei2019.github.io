@@ -10,6 +10,13 @@ import Routes from './routes'
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
 
+import axios from 'axios'
+//全局配置
+axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com'
+// axios.defaults.headers.common['Authorization'] = 'Token'
+// axios.defaults.headers.post['Content-type'] = 'application/urlencode'
+// axios.defaults.headers.get['Accepts'] = 'application/json'
+
 Vue.config.productionTip = false
 
 //
