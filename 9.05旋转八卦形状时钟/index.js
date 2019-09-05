@@ -29,10 +29,13 @@ var testSet = [
 
 window.onload = function(){
     init();
+    changePosition();
     setInterval(() => {
+        // changePosition();//运动延迟的厉害
        runTime(); 
     }, 100);
     setTimeout(() => {
+        // changePosition();
         changeCircle();
     }, 2000);
 }
@@ -119,3 +122,5 @@ function changePosition(){
         }
     }
 }
+
+console.log(Math.sin(0));
