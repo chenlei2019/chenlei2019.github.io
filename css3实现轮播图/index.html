@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+        #frame{
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        #dis{
+            position: absolute;
+            left: -50px;
+            top: -10px;
+            opacity: .5;
+        }
+        #dis li{
+            display: inline-block;
+            width: 200px;
+            height: 20px;
+            margin: 0 50px;
+            float: left;
+            text-align: center;
+            color: #fff;
+            border-radius: 10px;
+            background-color: #000;
+        }
+        img{
+            width: 300px;
+            height: 300px;
+            display: block;/*两行很重要*/
+            float: left;
+        }
+        #photos{
+            position: absolute;
+            width: calc(300px * 3);
+        }
+        .play{
+            animation: ma 10s ease-out infinite alternate;
+        }
+        @keyframes ma{
+            0%,20%{
+                margin-left: 0px;
+            }
+            40%,60%{
+                margin-left: -300px;
+            }
+            80%,100%{
+                margin-left: -600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="frame">
+        <div id="photos" class="play">
+            <img src="./img/1.jpg" alt="">
+            <img src="./img/3.jpg" alt="">
+            <img src="./img/4.jpg" alt="">
+            <ul id="dis">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
