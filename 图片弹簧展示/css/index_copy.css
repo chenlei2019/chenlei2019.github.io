@@ -1,0 +1,159 @@
+body,p{
+	margin: 0;
+}
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+img{
+	border: none;
+	vertical-align: middle;
+}
+body{
+	background: #000000;
+	color: #fff;
+
+	overflow-x: hidden;	/* 旋转后会出现横向的滚动条 */
+}
+
+
+
+
+
+/*works*/
+#wrap ul{
+	width: 1050px;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	transform-style: preserve-3d;	/* 自己变成3d的空间是为了图片像弹簧一下能出来，加不加景深都可以，加了会视觉冲击感强烈一点 */
+	transform: translateY(-15%) rotateX(45deg) rotateZ(45deg);	/* 先往右转45deg，斜着(wtud3)了，再往后一把推倒（旋转Z轴45deg） */
+}
+#wrap li{
+	width: 330px;
+	height: 230px;
+	margin-bottom: 30px;
+	position: relative;
+	background: rgba(255,255,255,0.5);	/* 给一个灰色的底色 */
+	cursor: pointer;
+}
+#wrap li img,#wrap li div{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+
+	transition: 0.3s;	/* 加上运动效果 */
+}
+#wrap li img{
+	z-index: 2;	/* 把图片放到最上面 */
+}
+#wrap li div:nth-of-type(1){
+	background: #ac5cf5;
+	opacity: 0.5;
+}
+#wrap li div:nth-of-type(2){
+	background: #5db4eb;
+	opacity: 0.5;
+}
+#wrap li div:nth-of-type(3){
+	background: #5debb4;
+	opacity: 0.5;
+}
+
+/* 以下为弹簧效果 */
+#wrap li:hover{
+	box-shadow: 0 0 50px #fff;
+}
+#wrap li:hover img:nth-of-type(1){
+	transform: translateZ(100px);
+}
+#wrap li:hover div:nth-of-type(1){
+	transform: translateZ(75px);
+}
+#wrap li:hover div:nth-of-type(2){
+	transform: translateZ(50px);
+}
+#wrap li:hover div:nth-of-type(3){
+	transform: translateZ(25px);
+}
+
+
+#shadowBox{
+	width: 100%;
+	height: 2000px;
+	background: rgba(0,0,0,0.5);
+	position: absolute;
+	left: 0;
+	top: 0;
+	
+	opacity: 0;
+	transition: 0.5s;
+	display: none;	/* 不设置为none的话，它会档住图片 */
+}
+#showPic{
+	width: 600px;
+	height: 400px;
+	box-shadow: 0 0 50px #000;
+	position: fixed;
+
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	
+	opacity: 0;
+	transition: 0.5s;
+	transform: scale(0);	/* 出现的形式是从小到大 */
+	display: none;	/* 不设置为none的话它会档住图片 */
+	
+}
+.prev,.next{
+	width: 50px;
+	height: 45px;
+	position: absolute;
+	/* top: 50%;
+	margin-top: -22px; */
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	
+	cursor: pointer;
+	z-index: 2;
+}
+.prev{
+	left: 0;
+	background: url(../images/prev.png);
+}
+.next{
+	right: 0;
+	background: url(../images/next.png);
+}
+#showPic .img{
+	position: relative;
+	z-index: 1;
+	transform-style: preserve-3d;
+	perspective: 500px;
+	height: 400px;
+}
+#showPic img{
+	width: 600px;
+	height: 400px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	transition: transform .3s;
+}
+
+/* 图片张开时候的变换中心点 */
+#showPic img.moveToRight{
+	transform-origin: left;
+}
+#showPic img.moveToLeft{
+	transform-origin: right;
+}

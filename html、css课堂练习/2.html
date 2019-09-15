@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- 告诉搜索引擎爬虫，我们的网站是关于什么内容的  -->
+<html lang="en">
+<head>
+    <!-- 结构化标签 -->
+    <meta charset="UTF-8"> 
+    <!-- gb2312、gbk、unicode、utf-8、 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="" method="GET">
+
+       <p>
+            username:<input type="text" name="username">
+       </p> 
+       <p>
+            password:<input type="password" name="password" >
+       </p>
+       <input type="submit" value="提交">
+       <br>
+       <input type="text" value="请输入用户名" onfocus="if(this.value =='请输入用户名') {this.value='';this.style.color='#424242'}" onblur="if(this.value==''){this.value='请输入用户名';this.style.color='#999';}">
+    </form>
+    <script>
+        var inputpass = document.getElementsByName('password')[0];
+        inputpass.onkeypress = function(e){
+            console.log(String.fromCharCode(e.charCode));
+            console.log(e);
+        }
+        inputpass.onkeydown = function(e){
+            console.log(e);
+        }
+        inputpass.oninput = function(e){
+            //获取密码输入框的内容！
+            console.log(this.value);
+        }
+        inputpass.onchange = function(e){
+            console.log(this.value);
+        }
+
+        window.onscroll = function(e){
+            console.log(window.pageXOffset + " " + window.pageYOffset);
+        }
+
+        window.onload = function(){
+            var div = document.getElementsByTagName('div')[0];
+            console.log(div);
+            div.style.backgroundColor = "red";
+            div.style.width = "300px";
+            div.style.height = "300px";
+        }
+        // document.onkeypress = function(e){
+        //     console.log(String.fromCharCode(e.charCode));
+        // }
+    </script>
+
+    <div></div>
+
+    <a href="tel:13373973379">给陈哥打电话</a>
+    <a href="javascript:alert('让你手欠！');">你点我试试啊，come on！！</a>
+
+    <!-- <div style="width: 100px;height:100px;background-color:red;margin: 10px;">adfafsdfadfafsdfadfafsdfadfafsdfadfafsdfadfafsdf</div>
+    <div style="width: 100px;height:100px;background-color:red;margin: 10px;">邓哥很帅邓哥很帅邓哥很帅邓哥很帅邓哥很帅</div>
+    <ol type="1" reversed="reversed" start="8">
+        <li>marvel</li>
+        <li>速8</li>
+        <li>返老还童</li>
+        <li>了不起的盖茨比</li>
+    </ol> -->
+     <!-- <ul type="disc"> 
+        circle 、square 
+        <li>草莓</li>
+        <li>苹果</li>
+        <li>橘子</li>
+    </ul>  -->
+</body>
+</html>

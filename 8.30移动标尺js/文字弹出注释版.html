@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            /* height: 100px; */
+            margin: 100px auto;
+            /* position: relative; */
+            /* 文本的排列方式 */
+            writing-mode: vertical-rl;
+        }
+        div span {
+            opacity:0;
+            /* 过渡动画 */
+            transition: all 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo">
+       <span></span>
+    </div>
+    <script>
+        var demo = document.getElementById("demo");
+        // 诗词数据
+        var colArr = ["拨灯书尽红笺也，","依旧无聊。","玉漏迢迢，","梦里寒花隔玉箫。", "几竿修竹三更雨，", "叶叶萧萧。", "分付秋潮，", "莫误双鱼到谢桥。"];
+        // 每一列第一个字的延迟时间
+        var delayCol = 0;
+        // 循环每一列的数据
+        for (var col = 0; col < colArr.length; col ++) {
+            // 每一列的词
+            var str = colArr[col];
+            // 创建每列dom结构
+            var oP = document.createElement('p');
+            // 每列文字的dom元素几何
+            var spanArr = [];
+            // 循环文字创建文字dom元素
+            for (i = 0; i < str.length; i ++) {
+                // 每个文字
+                var a = str.slice(i, i + 1);
+                // 创建span标签
+                var span = document.createElement('span');
+                // 添加文本
+                span.innerText = a;
+                // span元素添加到spanArr里面
+                spanArr.push(span);
+            }
+            // 循环span元素  为每个文字添加延迟时间
+            spanArr.forEach(function (item, index, arr) {
+                // 延迟时间为上一列总的动画时间 + 当前列当前文字之前的文字动画时间
+                item.style.transitionDelay = delayCol + (index) * 0.3 + 's';
+                // 初始opacity为0
+                item.style.opacity = 0;
+                //将文字插入到p标签内
+                oP.appendChild(item);
+                setTimeout(function() {
+                    // 修改opacity的值
+                    item.style.opacity = 1;
+                }, 0)
+            });
+            // 每列添加完元素之后 将列延迟时间更新
+            delayCol =  delayCol + (spanArr.length) * 0.3;
+            demo.appendChild(oP);
+        }
+        
+        
+    </script>
+</body>
+</html>

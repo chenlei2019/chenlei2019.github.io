@@ -1,0 +1,78 @@
+.container{
+    text-align: center;
+}
+.left,.right{
+    display: inline-block;
+}
+p{
+    text-align: left;
+    text-indent: 2em;
+    line-height: 1.8em;
+}
+.left{
+    width: 300px;
+    vertical-align: top;
+    /* border: 1px solid ; */
+}
+.right{
+    width: 500px;
+
+}
+.left .board{
+    width: 300px;
+    height: 300px;
+    background: url('./img/bg.gif') left top/100%;
+    position: relative;
+    cursor: pointer;
+    transition: 4s;
+}
+.left .board .center{
+    width: 156px;
+    height: 156px;
+    background: url("./img/round.png") left top/100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+.left .board .result{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: none;
+}
+
+.right .right-container{
+    /* 网格布局*/
+    display: grid;
+    /* 设置有多少列,每列的宽度是多少 */
+    /* grid-template-columns: 100px 100px 100px 100px 100px; */
+    /* grid-template-columns: repeat(5, 100px); */
+    /* 分成5列,每列占一个比例的宽度, fr表示比例 fraction */
+    /* grid-template-columns: repeat(5, 1fr); */
+
+    grid-template-rows: repeat(20,1fr);
+    grid-auto-flow: column;
+
+}
+.right .right-container .item img{
+    width: 16px;
+    height: 16px;
+}
+.right .right-container .item span{
+    display: inline-block;
+    width: 25px;
+    text-align: right;
+    margin-right: 5px;
+    vertical-align: 2px;
+}
+.right .right-container .item{
+    padding: 5px 0;
+}

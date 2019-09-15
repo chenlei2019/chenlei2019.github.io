@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //es6中的generator函数
+        // var fetch = require('node-fetch');//require 没有定义require is not defined
+        // function* gen(){
+        //     var url = 'https://api.github.com/users/github';
+        //     var result = yield fetch(url);
+        //     console.log(result.bio);
+        // }
+        // var g = gen();
+        // var result = g.next();
+        // result.value.then(function(data){
+        //     return data.json();
+        // }).then(function(data){
+        //     g.next(data);
+        // })
+        
+        //the-first-name
+        //theFirseName
+        var reg = /-(\w)/g;
+        var str = "the-first-name";
+        console.log(str.replace(reg,function($,$1){
+            return $1.toUpperCase();
+        }));
+
+        var str = "abaaa";
+        var reg = /a(?=b)/g;
+        console.log(str.match(reg));
+
+        //非贪婪匹配，能少就少匹配
+        var str = "abaaa";
+        var reg = /a{3,4}?/g;
+        console.log(str.match(reg));
+
+        var str = "abaaa";
+        var reg = /a??/g;
+        console.log(str.match(reg));
+
+        var str = "abaaa";
+        var reg = /a+?/g;
+        console.log(str.match(reg));
+
+        var str = "abaaa";
+        var reg = /a*?/g;
+        console.log(str.match(reg));
+
+        var str = "aaaaaabbbbbccccc";
+        var reg = /(\w)\1*/g;
+        console.log(str.replace(reg,"$1"));
+
+        var str = "100000000000";
+        var reg = /(?=(\B)(\d{3})+$)/g;
+        console.log(str.replace(reg,"."));
+    </script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 <template>
     <div id="add-blog">
         <h2>添加博客!</h2>
-        <form action="" v-if="!blog.submmited">
+        <form action="" v-if="!submmited">
             <label for="">博客标题</label>
             <input type="text" v-model="blog.title" required>
 
@@ -19,14 +19,14 @@
             </div>
             <label for="">作者：</label>
             <select v-model="blog.author">
-                <option v-for="author in blog.authors">
+                <option v-for="author in authors" :key="author">
                     {{author}}
                 </option>
             </select>
             <button v-on:click.prevent="post">添加博客</button>
         </form>
 
-        <div v-if="blog.submmited">
+        <div v-if="submmited">
             <h3>您的博客发布成功！</h3>
         </div>
     <hr>
@@ -37,7 +37,7 @@
             <p>{{blog.content}}</p>
             <p>博客分类</p>
             <ul>
-                <li v-for="category in blog.categories">
+                <li v-for="category in blog.categories" :key="category">
                     {{category}}
                 </li>
             </ul>
@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import axios from '../axios-auth'
 export default {
     //https://jsonplaceholder.typicode.com/
     //https://jsonplaceholder.typicode.com/posts
@@ -57,23 +58,29 @@ export default {
             title:"",
             content:"",
             categories:[],
-            author:"",
+            author:""
+            },
             authors: ["chenlei","xiaoliao","xiaochen"],
             submmited:false
-        }
     }
   },
   methods:{
-      post:function(){
-          this.$http.post("https://jsonplaceholder.typicode.com/posts",{
-              title:this.blog.title,
-              body:this.blog.content,
-              userId:1
-          }).then(function(data){
-              this.blog.submmited = true;
-              console.log(data)
-          })
-      }
+    post:function(){
+      axios.post("/blogs",this.blog).then((data) => {
+        this.submmited = true;
+        console.log(data);
+      })
+    }
+      // post:function(){
+      //     this.$http.post("https://jsonplaceholder.typicode.com/posts",{
+      //         title:this.blog.title,
+      //         body:this.blog.content,
+      //         userId:1
+      //     }).then(function(data){
+      //         this.blog.submmited = true;
+      //         console.log(data)
+      //     })
+      // }
   }
 }
 </script>
